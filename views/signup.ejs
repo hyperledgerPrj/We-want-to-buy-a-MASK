@@ -1,133 +1,236 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en">
-<center>
-
+  
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>회원가입</title>
-
-    <link rel="stylesheet" href="/css/style.min.css" />
-    <link rel="stylesheet" href="/css/modules.css" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/modules.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <style>
-      body {
-        text-align: center;
-      }
-
-      input {
-        height: 40px;
-      }
-
-      a {
-        text-decoration: none;
-      }
-    </style>
+      body {text-align: center;}
+      input {height: 40px;}
+      a{text-decoration: none;}
+      table{height: 100px;
+      margin: auto;
+      text-align: center;}
+ 
+ </style>
   </head>
-  <!-- End Head -->
 
-  <body class="default">
-    <!--
-START MODULE AREA 1: Header 3
--->
+<body>
     <header class="MOD_HEADER3">
-      <div class="MOD_HEADER3_SocialBarContainer">
-        <div data-layout="_r" class="MOD_HEADER3_SocialBar">
-          <div class="MOD_HEADER3_SocialIcons">
+        <div class="MOD_HEADER3_SocialBarContainer">
+            <div data-layout="_r" class="MOD_HEADER3_SocialBar">
+                <div class="MOD_HEADER3_SocialIcons">
 
-            <div class="menubar">
-              <nav>
-                <ul>
-                  <li>
-                    <a href="/index" class="text">K-SHIELD</a>
-                  </li>
-                  <li><a href="#" class="m">View mask</a></li>
-                  <li><a href="#" class="m">View agents</a></li>
-                  <li>
-                    <a href="#" class="m" onclick="myFunction()">Agents Register</a>
+                    <div class="menubar">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="/" class="text">K-SHIELD</a>
+                                </li>
+                                <li><a href="#" class="view" onclick="myFunction()">View Mask</a></li>
+                                <li>
+                                <li><a href="#" class="view" onclick="myFunction()">View Agents</a></li>
 
-                  </li>
-                </ul>
-              </nav>
+                                <li>
+                                <li><a href="#" class="view" onclick="myFunction()">Agents register</a></li>
+
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="MOD_HEADER3_Contact">
+                    <p class="MOD_HEADER3_Tel"></p>
+                    <a href="/signup" class="btn"> Sign up </a>
+                    <a href="/login" class="btn"> Login </a>
+                </div>
             </div>
-          </div>
-          <div class="MOD_HEADER3_Contact">
-            <p class="MOD_HEADER3_Tel"></p>
-            <a href="/signup" class="btn"> 회원가입 </a>
-            <a href="/login" class="btn"> 로그인 </a>
-          </div>
         </div>
-      </div>
     </header>
 
-
-
-    </header>
-
-    <!--
-  START MODULE AREA 2: Page Title 1
--->
+  <main>
     <section>
-      <div data-layout="_r">
-        <div data-layout="al16"><br>
-          <h1 style="text-align: center;">회원가입</h1><br>
-        </div>
+      <form
+      name="registerform"
+      id="my-form"
+      action="/signup"
+      method="post"
+    >
+    <div data-layout="_r">
+      <div data-layout="al16"><br>
+        <h1 style="text-align: center;">Sign up</h1><br>
       </div>
-    </section>
-    <table>
+    <table calss="signupform">
       <td>
-        <input id="id" placeholder="UsernameID" class="a" />
+        <label for="labelid"
+        >아이디 <span class="required">*</span></label
+      >
+        <input type="text" name="userid"  placeholder="ID"
+        required="required"
+        aria-required="true" />
       </td>
-      <td><button id="id_check" class="a">중복 확인</button></td>
-      </tr>
+      <td><a href="#" id="id_check"  onclick="check()">중복 확인</td>
       <tr>
         <td>
-          <input id="name" placeholder="name" />
+          <label for="passwordlabel"
+          >비밀번호 <span class="required">*</span></label
+        >
+          <input type="password" name="userpw" placeholder="Password"
+          required="required"
+          id="pass"
+          aria-required="true" />
         </td>
       </tr>
       <tr>
         <td>
-          <input id="email" placeholder="E-Mail" />
+          <label for="passwordConfirm"
+          >비밀번호 확인 <span class="required">*</span></label
+        >
+        <input
+          type="password"
+          required="required"
+          aria-required="true"
+          value=""
+          name="confirmuserpassword"
+          id="pass-check"
+        />
         </td>
       </tr>
       <tr>
         <td>
-          <input id="aff" placeholder="Affiliation" />
+          <label for="email"
+                    >이메일 <span class="required">*</span></label
+                  >
+                  <input
+                    type="text"
+                    required="required"
+                    aria-required="true"
+                    value=""
+                    name="useremail"
+                  />
         </td>
       </tr>
       <tr>
         <td>
-          <input type="password" id="password" placeholder="Password at least 8 charset" />
+          <label for="aff"
+          >소속<span class="required">*</span></label
+        >
+        <input
+          type="text"
+          required="required"
+          aria-required="true"
+          value=""
+          name="usertype"
+        />
         </td>
       </tr>
+      <br>
+      <br>
       <tr>
         <td>
-          <input type="password" id="repassword" placeholder="Password confirmation" />
+          <label for="createsubmit"
+          > 가입하기 <span class="required"></span></label
+        >
+          <input
+          type="submit"
+          value="create"
+          id="submitt"
+          onclick="chkPwd();"
+        />
         </td>
       </tr>
-    </table><br><br>
-    <a href="/main" class="btn" onclick="signup()">회원가입</a></button>
-    <br />
-    </div>
-    </div>
+    </table>
+      </div>
+    </form>
     </section>
+  </main>
+ 
+  <div id=bitwise-footer style=text-align:center;margin-top:3em;padding:1em;color:#aaaaaa;font-size:0.75em;font-style:italic;>Hosted by the team <a href=http://www.bitwise.io/ target=_blank class="r" class="r">K-Shield</a></div>
+   
+   <script>
 
-    <script>
-      function signup() {
-        alert("가입되었습니다");
-      }
-      function myFunction() {
-        alert("로그인 하세요");
-      }
-    </script>
+              window.onload=function(){
+  document.getElementById('my-form').onsubmit=function(){
+   var pass=document.getElementById('pass').value;
+   var passCheck=document.getElementById('pass-check').value;
+   
+   if(pass==passCheck){
+    alert('가입되었습니다');
+    location.href="login.html";
+   }else{
+   alert('비밀번호가 일치하지 않습니다.');
+     return false; 
+   }
 
-    <script src="/js/index.js"></script>
-    <div id=bitwise-footer
-      style=text-align:center;margin-top:3em;padding:1em;color:#aaaaaa;font-size:0.75em;font-style:italic;>Hosted by the
-      team <a href=http://www.bitwise.io/ target=_blank>K-Shield</a></div>
+   
+
+  //    function signup() {
+  //      alert("가입되었습니다");
+  //    }
+  //    function myFunction() {
+  //      alert("로그인 하세요");
+  //    }
+  //    function check() {
+  //      alert("사용 가능한 ID입니다");
+  //    }
+
+
+
+  //     window.onload=function(){
+  //document.getElementById('my-form').onsubmit=function(){
+  // var pass=document.getElementById('pass').value;
+  // var passCheck=document.getElementById('pass-check').value;
+   
+  // if(pass==passCheck){
+  //  alert('가입되었습니다');
+  //  location.href="login.html";
+  // }else{
+  // alert('비밀번호가 일치하지 않습니다.');
+  //   return false; 
+  // }
+   
+ // }
+ //}
+ 
+//function checkpass() {
+// var password = form.getFormValue("pass");
+//            var passwordchk = form.getFormValue("pass-check");
+//            if(oUtil.isNull(password) || oUtil.isNull(passwordchk)){
+//                return;
+//            }else{
+//           		if(password != passwordchk) {
+//           			$.messager.alert("INFO", "");
+
+//           			return;
+//           		}
+//        		// 최소 8자리 이상
+//                if(!password.length >= 8) { 
+//                    alert("비밀번호는 최소 8자리 이상이어야 합니다."); 
+//                    return false;
+//                }
+                 
+//                // 영문, 숫자, 특수문자 2종 이상 혼용
+//                var chk = 0;
+//                if(password.search(/[0-9]/g) != -1 ) chk ++;
+//                if(password.search(/[a-z]/ig)  != -1 ) chk ++;
+//                if(password.search(/[!@#$%^&*()?_~]/g)  != -1  ) chk ++;
+//                if(chk < 2) { 
+//                    alert("비밀번호는 숫자, 영문, 특수문자를 두가지이상 혼용하여야 합니다."); 
+//                    return false;
+//                }
+                 
+                 
+//                alert("비밀번호 유효성 검증에 성공하였습니다.");
+//                $("#PWD_SUC").val("S");
+//            }
+ </script>
+
+<script src="../public/js/index.js"></script>
   </body>
-</center>
-
 </html>
