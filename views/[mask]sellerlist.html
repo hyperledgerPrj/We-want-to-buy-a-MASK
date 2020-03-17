@@ -17,60 +17,8 @@
 
     <link rel="stylesheet" href="css/style.css" />
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
-    <script>
-        var mysql = require('mysql')
-
-        var con = mysql.createConnection({
-            host: 'localhost',
-            user: 'yourusername',
-            password: 'yourpassword',
-            database: 'mydb',
-        })
-
-        con.connect(function (err) {
-            if (err) throw err
-            con.query('SELECT name, address FROM customers', function (
-                err,
-                result,
-                fields
-            ) {
-                if (err) throw err
-                console.log(result)
-            })
-        })
-    </script>
-    <style>
-        body {
-            text-align: center;
-        }
-
-        input {
-            height: 40px;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        table {
-            border: 1px solid;
-            padding: 8px;
-            width: 500px;
-        }
-
-            table.a {
-                border: 1px solid;
-                padding: 8px;
-                width: 800px;
-            }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: center;
-            border: 1px solid;
-        }
-    </style>
+   
+    
 </head>
 <body class="default" style="text-align: center;">
     <header class="MOD_HEADER3">
@@ -144,7 +92,7 @@
 
 
                 <div class="table-row">
-                    <div class="serial"><a href="seller_detail.html">1-1-2-</a></div>
+                    <div class="serial"><a href="sellerlist_detail.html">1-1-2-</a></div>
                     <div class="country">판매업체</div>
                     <div class="visit">b</div>
                     <div class="percentage">c</div>
@@ -206,31 +154,7 @@
         }
     </script>
     <!-- JS here -->
-    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/ajax-form.js"></script>
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/scrollIt.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/nice-select.min.js"></script>
-    <script src="js/jquery.slicknav.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/plugins.js"></script>
-
-    <!--contact js-->
-    <script src="js/contact.js"></script>
-    <script src="js/jquery.ajaxchimp.min.js"></script>
-    <script src="js/jquery.form.js"></script>
-    <script src="js/jquery.validate.min.js"></script>
-    <script src="js/mail-script.js"></script>
-
+  
     <script src="js/main.js"></script>
     <script src="public/js/index.js"></script>
     <div id=bitwise-footer style=text-align:center;margin-top:3em;padding:1em;color:#aaaaaa;font-size:0.75em;font-style:italic;>Hosted by the team <a href=http://www.bitwise.io/ target=_blank class="r">K-Shield</a></div>
