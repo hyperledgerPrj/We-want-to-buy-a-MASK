@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="public/css/style.min.css" />
+    <link rel="stylesheet" href="public/css/modules.css" />
+    <link rel="stylesheet" href="public/css/style.css" />
+    <style>
+      body {text-align: center;}
+      input {height: 40px;}
+      a{text-decoration: none;}
+      table{height: 100px;
+      margin: auto;
+      text-align: center;}
+ 
+ </style>
+  </head>
+
+<body>
+<header>
+  <div class="MOD_HEADER3_SocialBarContainer">
+    <div data-layout="_r" class="MOD_HEADER3_SocialBar">
+      <div class="MOD_HEADER3_SocialIcons">
+        <div class="menubar">
+          <nav>
+          <ul>
+            <li>
+              <a href="index.html" class="text"
+                >K-SHIELD</a>
+            </li>
+            <li><a href="#" class="m">View mask</a>
+              <ul class="submenu">
+                <li><a href="mask1.html">생산업체</a></li>
+                <li><a href="mask2.html">판매업체</a></li>
+                <li><a href="mask3.html">유통업체</a></li>
+              </ul>
+            </li>
+            <li><a href="#" class="m">View agents</a>
+              <ul class="submenu">
+                <li><a href="agents1.html">생산업체</a></li>
+                <li><a href="agents2.html">판매업체</a></li>
+                <li><a href="agents3.html">유통업체</a></li>
+              </ul>
+            </li>
+            <li>
+              <li><a href="#" class="m" onclick="myFunction()">Agents register</a></li>
+            </li>
+          </ul></nav>
+        </div>
+      </div>
+      <div class="MOD_HEADER3_Contact">
+        <p class="MOD_HEADER3_Tel"></p>
+        <a href="signup.html" class="btn"> Sign up </a>
+        <a href="login.html" class="btn"> Login </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <main>
+    <section>
+      <form
+      name="registerform"
+      id="my-form"
+      action="/signup"
+      method="post"
+    >
+    <div data-layout="_r">
+      <div data-layout="al16"><br>
+        <h1 style="text-align: center;">Sign up</h1><br>
+      </div>
+    <table calss="signupform">
+      <td>
+        <label for="labelid"
+        >아이디 <span class="required">*</span></label
+      >
+        <input type="text" name="userid"  placeholder="ID"
+        required="required"
+        aria-required="true" />
+      </td>
+      <td><a href="#" id="id_check" class="btn" onclick="check()">중복 확인</button></td>
+      </tr>
+      <tr>
+        <td>
+          <label for="passwordlabel"
+          >비밀번호 <span class="required">*</span></label
+        >
+          <input type="password" name="userpw" placeholder="Password"
+          required="required"
+          id="pass"
+          aria-required="true" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="passwordConfirm"
+          >비밀번호 확인 <span class="required">*</span></label
+        >
+        <input
+          type="password"
+          required="required"
+          aria-required="true"
+          value=""
+          name="confirmuserpassword"
+          id="pass-check"
+        />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="email"
+                    >이메일 <span class="required">*</span></label
+                  >
+                  <input
+                    type="text"
+                    required="required"
+                    aria-required="true"
+                    value=""
+                    name="useremail"
+                  />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="aff"
+          >소속<span class="required">*</span></label
+        >
+        <input
+          type="text"
+          required="required"
+          aria-required="true"
+          value=""
+          name="usertype"
+        />
+        </td>
+      </tr>
+      <br>
+      <br>
+      <tr>
+        <td>
+          <label for="createsubmit"
+          > 가입하기 <span class="required"></span></label
+        >
+          <input
+          type="submit"
+          value="create"
+          class="btn1" 
+          id="submitt"
+          onclick="()"
+        />
+        </td>
+      </tr>
+    </table>
+      </div>
+    </form>
+    </section>
+  </main>
+ 
+  <div id=bitwise-footer style=text-align:center;margin-top:3em;padding:1em;color:#aaaaaa;font-size:0.75em;font-style:italic;>Hosted by the team <a href=http://www.bitwise.io/ target=_blank class="r" class="r">K-Shield</a></div>
+   
+   <script>
+      function signup() {
+        alert("가입되었습니다");
+      }
+      function myFunction() {
+        alert("로그인 하세요");
+      }
+      function check() {
+        alert("사용 가능한 ID입니다");
+      }
+      window.onload=function(){
+  document.getElementById('my-form').onsubmit=function(){
+   var pass=document.getElementById('pass').value;
+   var passCheck=document.getElementById('pass-check').value;
+   
+   if(pass==passCheck){
+    alert('가입되었습니다');
+    location.href="login.html";
+   }else{
+    alert('비밀번호가 일치하지 않습니다.');
+     return false; 
+   }
+   
+  }
+ }
+
+      </script>
+
+<script src="assets/js/index.js"></script>
+  </body>
+</html>
