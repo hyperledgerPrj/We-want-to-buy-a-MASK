@@ -17,6 +17,17 @@
             h1, p {
                 font-family: 'Sunflower', sans-serif;
             }
+
+          input[type="submit"] {
+             
+                 background: #09c;
+                 color: #fff;
+                 font-family: 'Sunflower', sans-serif;
+                 height: 30px;            
+                 border: 1px solid #999;
+}
+        
+                 
         </style>
 
     </head>
@@ -77,13 +88,17 @@
                 </div>
             </div>
             <form name="sell-register" action="/register_users" method="post">
-                <table style="border:2px solid white; width:100%; height:300px; margin:auto;text-align: center;">
+                <table style="        border: 2px solid white;
+        width: 100%;
+        height: 300px;
+        margin: auto;
+        text-align: center;">
                     <tr>
                         <td>
                             업체명
                         </td>
                         <td>
-                            <input type="text" name="sell-name" placeholder=""
+                            <input type="text" id="sell-name" placeholder=""
                                    required="required"
                                    aria-required="true" />
                         </td>
@@ -93,7 +108,7 @@
                             업체 대표
                         </td>
                         <td>
-                            <input type="text" name="sell-ceo" placeholder=""
+                            <input type="text" id="sell-ceo" placeholder=""
                                    required="required"
                                    aria-required="true" />
                         </td>
@@ -103,7 +118,7 @@
                             사업자 번호
                         </td>
                         <td>
-                            <input type="text" name="sell-license" placeholder=""
+                            <input type="text" id="sell-license" placeholder=""
                                    required="required"
                                    aria-required="true" />
                         </td>
@@ -113,7 +128,7 @@
                             판매 단가
                         </td>
                         <td>
-                            <input type="text" name="sell-price" placeholder=""
+                            <input type="text" id="sell-price" placeholder=""
                                    required="required"
                                    aria-required="true" />
                         </td>
@@ -123,7 +138,7 @@
                             판매 수량
                         </td>
                         <td>
-                            <input type="text" name="sell-quantity" placeholder=""
+                            <input type="text" id="sell-quantity" placeholder=""
                                    required="required"
                                    aria-required="true" />
                         </td>
@@ -133,17 +148,18 @@
                             판매처
                         </td>
                         <td>
-                            <input type="text" name="sell-dealership" placeholder=""
+                            <input type="text" id="sell-dealership" placeholder=""
                                    required="required"
                                    aria-required="true" />
                         </td>
                     </tr>
                     
                 </table><br><br>
-
-                <input type="submit" name="sell-submit" value="등록"
-                       required="required"
-                       aria-required="true" onclick="register();" />
+                            <div class="regis-submit">
+                                <input type="submit" id="sell-submit" value="등록"
+                                       required="required"
+                                       aria-required="true" onclick="register();" />
+                            </div>
             </form>
         </section>
         <script>

@@ -13,12 +13,20 @@
         <link rel="stylesheet" href="../public/css/style.css" />
         <link href="https://fonts.googleapis.com/css?family=Sunflower:300&display=swap" rel="stylesheet">
 
-        
         <style>
 
             h1, p {
                font-family: 'Sunflower', sans-serif;
             }
+
+               input[type="submit"] {
+             
+                 background: #09c;
+                 color: #fff;
+                 font-family: 'Sunflower', sans-serif;
+                 height: 30px;            
+                 border: 1px solid #999;
+}
         </style>
 
     </head>
@@ -85,7 +93,7 @@
                         업체명
                     </td>
                     <td>
-                        <input type="text" name="dist-name" placeholder=""
+                        <input type="text" id="dist-name" placeholder=""
                                required="required"
                                aria-required="true" />
                     </td>
@@ -95,7 +103,7 @@
                         업체 대표
                     </td>
                     <td>
-                        <input type="text" name="dist-ceo" placeholder=""
+                        <input type="text" id="dist-ceo" placeholder=""
                                required="required"
                                aria-required="true" />
                     </td>
@@ -105,7 +113,7 @@
                         사업자 번호
                     </td>
                     <td>
-                        <input type="text" name="dist-license" placeholder=""
+                        <input type="text" id="dist-license" placeholder=""
                                required="required"
                                aria-required="true" />
                     </td>
@@ -115,7 +123,7 @@
                         유통 수량
                     </td>
                     <td>
-                        <input type="text" name="dist-quantity" placeholder=""
+                        <input type="text" id="dist-quantity" placeholder=""
                                required="required"
                                aria-required="true" />
                     </td>
@@ -125,7 +133,7 @@
                         유통 경로
                     </td>
                     <td>
-                        <input type="text" name="dist-route" placeholder=""
+                        <input type="text" id="dist-route" placeholder=""
                                required="required"
                                aria-required="true" />
                     </td>
@@ -134,7 +142,7 @@
 
                 </table><br><br>
 
-                <input type="submit" name="dist-submit" value="등록"
+                <input type="submit" id="dist-submit" value="등록"
                        required="required"
                        aria-required="true" onclick="register();" />
                 <br />
