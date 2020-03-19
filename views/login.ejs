@@ -80,42 +80,32 @@ START MODULE AREA 1: Header 3
     </div>
     <table class="loginform">
       <tr>
-        <td>
-          <label for="labelid"
-          >이메일 <span class="required"></span></label
-        >
-          <input type="text" name="useremail"  placeholder="Email"
-          required="required"
-          aria-required="true" />
-        </td>
-      </tr>
+        <tr>
+            <td>
+                <label for="email">Email <span class="required"></span></label>
+                <input type="text"
+                       required="required"
+                       aria-required="true"
+                       placeholder="Email"
+                       name="useremail" />
+            </td>
+        </tr>
       <tr>
         <td>
-          <label for="passwordlabel"
-          >비밀번호 <span class="required"></span></label
-        >
+          <label for="passwordlabel">Password <span class="required"></span></label>
           <input type="password" name="userpw" placeholder="Password"
           required="required"
           aria-required="true" />
         </td>
       </tr>
       <tr>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <tr>
           <td>
+              <label for="createsubmit"> <span class="required"></span></label>
+              <input type="submit"
+                     value="Login"
+                     id="submitt"
+                     name="resultBtn" />
           </td>
-        </tr>
-        <br>
-        <br>
-        <tr>
-        <td>
-          <input type="submit" name="submit" value="Login"
-          required="required"
-          aria-required="true" onclick="login();"/>
-        </td>
       </tr>
     </table>
   </div>
