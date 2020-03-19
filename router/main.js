@@ -35,7 +35,7 @@ module.exports = function(app) {
     //if (!req.session.name)
     //  res.render("login", { message: "input your id and password." });
     //else res.redirect("/welcome");
-	res.redirect("login");
+	res.render("login");
   });
 
   app.get("/welcome", function(req, res) {
@@ -50,6 +50,7 @@ module.exports = function(app) {
     //else res.render("signup.html", { name: req.session.name });
 	res.render("signup", { message: "input your id and password." });
   });
+ 
 
   app.get("/logout", function(req, res) {
     req.session.destroy(function(err) {
