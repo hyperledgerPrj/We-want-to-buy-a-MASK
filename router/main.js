@@ -26,19 +26,29 @@ module.exports = function(app) {
   );
 
   app.get("/", function(req, res) {
-    if (!req.session.name) res.redirect("/login");
-    else res.redirect("/welcome");
+	  res.redirect("/welcome");
+    //if (!req.session.name) res.redirect("/login");
+    //else res.redirect("/welcome");
   });
 
   app.get("/login", function(req, res) {
-    if (!req.session.name)
-      res.render("login", { message: "input your id and password." });
-    else res.redirect("/welcome");
+    //if (!req.session.name)
+    //  res.render("login", { message: "input your id and password." });
+    //else res.redirect("/welcome");
+	res.redirect("login");
   });
 
   app.get("/welcome", function(req, res) {
-    if (!req.session.name) return res.redirect("/login");
-    else res.render("welcome", { name: req.session.name });
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("welcome", { name: req.session.name });
+  //	res.redirect("/welcome");
+       res.render("welcome", { message: "input your id and password." });
+    });
+  
+  app.get("/signup", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("signup", { message: "input your id and password." });
   });
 
   app.get("/logout", function(req, res) {

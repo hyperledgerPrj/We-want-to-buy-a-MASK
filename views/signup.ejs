@@ -2,235 +2,156 @@
 
 <html lang="en">
   
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Signup</title>
     <link rel="stylesheet" href="css/style.min.css" />
     <link rel="stylesheet" href="css/modules.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
     <style>
-      body {text-align: center;}
-      input {height: 40px;}
-      a{text-decoration: none;}
-      table{height: 100px;
-      margin: auto;
-      text-align: center;}
- 
- </style>
-  </head>
 
-<body>
-    <header class="MOD_HEADER3">
-        <div class="MOD_HEADER3_SocialBarContainer">
-            <div data-layout="_r" class="MOD_HEADER3_SocialBar">
-                <div class="MOD_HEADER3_SocialIcons">
+        h1, p {
+            font-family: 'Nanum Myeongjo', serif;
+        }
 
-                    <div class="menubar">
-                        <nav>
-                            <ul>
-                                <li>
-                                    <a href="/" class="text">K-SHIELD</a>
-                                </li>
-                                <li><a href="#" class="view" onclick="myFunction()">View Mask</a></li>
-                                <li>
-                                <li><a href="#" class="view" onclick="myFunction()">View Agents</a></li>
-
-                                <li>
-                                <li><a href="#" class="view" onclick="myFunction()">Agents register</a></li>
+            input[type="submit"] {
+             
+                 background: #09c;
+                 color: #fff;
+                 font-family: 'Sunflower', sans-serif;
+                 height: 30px;            
+                 border: 1px solid #999;
+}
+    </style>
 
 
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="MOD_HEADER3_Contact">
-                    <p class="MOD_HEADER3_Tel"></p>
-                    <a href="/signup" class="btn"> Sign up </a>
-                    <a href="/login" class="btn"> Login </a>
-                </div>
-            </div>
-        </div>
-    </header>
+</head>
 
-  <main>
-    <section>
-      <form
-      name="registerform"
-      id="my-form"
-      action="/signup"
-      method="post"
-    >
-    <div data-layout="_r">
-      <div data-layout="al16"><br>
-        <h1 style="text-align: center;">Sign up</h1><br>
-      </div>
-    <table calss="signupform">
-      <td>
-        <label for="labelid"
-        >아이디 <span class="required">*</span></label
-      >
-        <input type="text" name="userid"  placeholder="ID"
-        required="required"
-        aria-required="true" />
-      </td>
-      <td><a href="#" id="id_check"  onclick="check()">중복 확인</td>
-      <tr>
-        <td>
-          <label for="passwordlabel"
-          >비밀번호 <span class="required">*</span></label
-        >
-          <input type="password" name="userpw" placeholder="Password"
-          required="required"
-          id="pass"
-          aria-required="true" />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="passwordConfirm"
-          >비밀번호 확인 <span class="required">*</span></label
-        >
-        <input
-          type="password"
-          required="required"
-          aria-required="true"
-          value=""
-          name="confirmuserpassword"
-          id="pass-check"
-        />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="email"
-                    >이메일 <span class="required">*</span></label
-                  >
-                  <input
-                    type="text"
-                    required="required"
-                    aria-required="true"
-                    value=""
-                    name="useremail"
-                  />
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <label for="aff"
-          >소속<span class="required">*</span></label
-        >
-        <input
-          type="text"
-          required="required"
-          aria-required="true"
-          value=""
-          name="usertype"
-        />
-        </td>
-      </tr>
-      <br>
-      <br>
-      <tr>
-        <td>
-          <label for="createsubmit"
-          > 가입하기 <span class="required"></span></label
-        >
-          <input
-          type="submit"
-          value="create"
-          id="submitt"
-          onclick="chkPwd();"
-        />
-        </td>
-      </tr>
-    </table>
-      </div>
-    </form>
-    </section>
-  </main>
- 
-  <div id=bitwise-footer style=text-align:center;margin-top:3em;padding:1em;color:#aaaaaa;font-size:0.75em;font-style:italic;>Hosted by the team <a href=http://www.bitwise.io/ target=_blank class="r" class="r">K-Shield</a></div>
-   
-   <script>
+  <body>
+      <header class="MOD_HEADER3">
+          <div class="MOD_HEADER3_SocialBarContainer">
+              <div data-layout="_r" class="MOD_HEADER3_SocialBar">
+                  <div class="MOD_HEADER3_SocialIcons">
 
-              window.onload=function(){
-  document.getElementById('my-form').onsubmit=function(){
-   var pass=document.getElementById('pass').value;
-   var passCheck=document.getElementById('pass-check').value;
-   
-   if(pass==passCheck){
-    alert('가입되었습니다');
-    location.href="login.html";
-   }else{
-   alert('비밀번호가 일치하지 않습니다.');
-     return false; 
-   }
+                      <div class="menubar">
+                          <nav>
+                              <ul>
+                                  <li>
+                                      <a href="/" class="text">K-SHIELD</a>
+                                  </li>
+                                  <li><a href="#" class="view" onclick="myFunction()">View Mask</a></li>
+                                  <li>
+                                  <li><a href="#" class="view" onclick="myFunction()">View Agents</a></li>
 
-   
+                                  <li>
+                                  <li><a href="#" class="view" onclick="myFunction()">Agents register</a></li>
 
-  //    function signup() {
-  //      alert("가입되었습니다");
-  //    }
-  //    function myFunction() {
-  //      alert("로그인 하세요");
-  //    }
-  //    function check() {
-  //      alert("사용 가능한 ID입니다");
-  //    }
+
+                              </ul>
+                          </nav>
+                      </div>
+                  </div>
+                  <div class="MOD_HEADER3_Contact">
+                      <p class="MOD_HEADER3_Tel"></p>
+                      <a href="/signup" class="btn"> Sign up </a>
+                      <a href="/login" class="btn"> Login </a>
+                  </div>
+              </div>
+          </div>
+      </header>
+
+      <main>
+          <section>
+              <div data-layout="_r">
+                  <div data-layout="al16">
+                      <div class="Title-text">
+
+
+                          <h1>회원가입</h1>
+
+                      </div>
+                      </div>
+                  </section>
+
+          <form name="registerform"
+                id="my-form"
+                action="#"
+                method="post">
+              <section class="Main-text">
+                  <table style="border:2px solid white; width:100%; height:400px; margin:auto;text-align: center;  position: relative; left: 80px; top: 0px;">
+                      <tr>
+                          <td>
+                              <label for="email">EMAIL <span class="required">*</span></label>
+                              <input type="text"
+                                     required="required"
+                                     aria-required="true"
+                                     value=""
+                                     name="useremail" />
+                          </td>
+                          <td><a href="#" id="email_check" onclick="check()">중복 확인 </a></td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <label for="passwordlabel">PASSWORD <span class="required">*</span></label>
+                              <input type="password" name="userpw" placeholder="Password"
+                                     required="required"
+                                     id="pass"
+                                     aria-required="true" />
+                          </td>
+                          <td>
+                              <span style="color: red;font-size: xx-small"><strong>[숫자, 영문, 특수문자를 포함하는 8 ~ 20 자]</strong></span>
+                          </td>
+                      </tr>
+               
+
+                      <tr>
+                          <td>
+                              <label for="passwordConfirm">REPASSWORD <span class="required">*</span></label>
+                              <input type="password"
+                                     required="required"
+                                     aria-required="true"
+                                     value=""
+                                     name="confirmuserpassword"
+                                     id="pass-check" />
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <label for="group">GROUP  <span class="required">*</span></label>
+                              <input type="text"
+                                     required="required"
+                                     aria-required="true"
+                                     value=""
+                                     name="confirmuserpassword"
+                                     id="group" />
+                          </td>
+                      </tr>
+
+
+                      <tr>
+                          <td>
+                              <label for="createsubmit"> <span class="required"></span></label>
+                              <input type="submit"
+                                     value="create"
+                                     id="submitt"
+                                     name="resultBtn" />
+                          </td>
+                      </tr>
+                  </table>
+              </section>
+          </form>
+                  
+      </main>
 
 
 
-  //     window.onload=function(){
-  //document.getElementById('my-form').onsubmit=function(){
-  // var pass=document.getElementById('pass').value;
-  // var passCheck=document.getElementById('pass-check').value;
-   
-  // if(pass==passCheck){
-  //  alert('가입되었습니다');
-  //  location.href="login.html";
-  // }else{
-  // alert('비밀번호가 일치하지 않습니다.');
-  //   return false; 
-  // }
-   
- // }
- //}
- 
-//function checkpass() {
-// var password = form.getFormValue("pass");
-//            var passwordchk = form.getFormValue("pass-check");
-//            if(oUtil.isNull(password) || oUtil.isNull(passwordchk)){
-//                return;
-//            }else{
-//           		if(password != passwordchk) {
-//           			$.messager.alert("INFO", "");
-
-//           			return;
-//           		}
-//        		// 최소 8자리 이상
-//                if(!password.length >= 8) { 
-//                    alert("비밀번호는 최소 8자리 이상이어야 합니다."); 
-//                    return false;
-//                }
-                 
-//                // 영문, 숫자, 특수문자 2종 이상 혼용
-//                var chk = 0;
-//                if(password.search(/[0-9]/g) != -1 ) chk ++;
-//                if(password.search(/[a-z]/ig)  != -1 ) chk ++;
-//                if(password.search(/[!@#$%^&*()?_~]/g)  != -1  ) chk ++;
-//                if(chk < 2) { 
-//                    alert("비밀번호는 숫자, 영문, 특수문자를 두가지이상 혼용하여야 합니다."); 
-//                    return false;
-//                }
-                 
-                 
-//                alert("비밀번호 유효성 검증에 성공하였습니다.");
-//                $("#PWD_SUC").val("S");
-//            }
- </script>
-
-<script src="../public/js/index.js"></script>
+      <script src="/js/index.js"></script>
   </body>
 </html>
+
+
+
