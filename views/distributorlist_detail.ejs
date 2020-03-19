@@ -1,32 +1,22 @@
 ﻿<!DOCTYPE html>
-<html>
+
+    <html lang="en">
     <!-- Start Head -->
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title style="text-align: center;">유통업체 등록</title>
 
-        <link rel="stylesheet" href="../public/css/style.min.css" />
-        <link rel="stylesheet" href="../public/css/modules.css" />
-        <link rel="stylesheet" href="../public/css/style.css" />
+        <link rel="stylesheet" href="css/style.min.css" />
+        <link rel="stylesheet" href="css/modules.css" />
+        <link rel="stylesheet" href="css/style.css" />
         <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 
-    <style>
+        <style>
 
-        h1, p {
-            font-family: 'Nanum Myeongjo', serif;
-        }
-
-
-               input[type="submit"] {
-             
-                 background: #09c;
-                 color: #fff;
-                 font-family: 'Sunflower', sans-serif;
-                 height: 30px;            
-                 border: 1px solid #999;
-}
+            h1, p {
+                font-family: 'Nanum Myeongjo', serif;
+            }
         </style>
 
     </head>
@@ -78,87 +68,48 @@
                 </div>
             </div>
         </header>
+
         <section>
-            <form name="dist-register" action="/register_users" method="post">
-                <div data-layout="_r">
-                    <div data-layout="al16">
-                        <br>
-                        <h1 style="text-align: center;">유통업체 등록</h1><br>
-                    </div>
+            <div data-layout="_r">
+                <div data-layout="al16">
+                    <br>
+                    <h1 style="text-align: center;">유통업체 상세정보</h1><br>
                 </div>
+            </div>
+            <form name="registerform" action="/venderinfo_detail" method="get">
+                <table style="border:2px solid white; width:50%; height:500px; margin:auto;text-align: center;">
+                    <tbody>
+                        <tr>
+                            <td> <strong> 업체명 </strong> </td>
+                            <td> K-쉴드 </td>
+                        </tr>
+                        <tr>
+                            <td> <strong> 업체 대표</strong> </td>
+                            <td> 우믿음 </td>
+                        </tr>
+                        <tr>
+                            <td> <strong> 유통수량 </strong> </td>
+                            <td> 202020개 </td>
+                        </tr>
+                        <tr>
+                            <td> <strong> 유통경로 </strong> </td>
+                            <td> 온라인 </td>
+                        </tr>
 
-                <table style="border:2px solid white; width:100%; height:300px; margin:auto;text-align: center;">
-                <tr>
-                    <td>
-                        업체명
-                    </td>
-                    <td>
-                        <input type="text" id="dist-name" placeholder=""
-                               required="required"
-                               aria-required="true" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        업체 대표
-                    </td>
-                    <td>
-                        <input type="text" id="dist-ceo" placeholder=""
-                               required="required"
-                               aria-required="true" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        사업자 번호
-                    </td>
-                    <td>
-                        <input type="text" id="dist-license" placeholder=""
-                               required="required"
-                               aria-required="true" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        유통 수량
-                    </td>
-                    <td>
-                        <input type="text" id="dist-quantity" placeholder=""
-                               required="required"
-                               aria-required="true" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        유통 경로
-                    </td>
-                    <td>
-                        <input type="text" id="dist-route" placeholder=""
-                               required="required"
-                               aria-required="true" />
-                    </td>
-                </tr>
-
-
-                </table><br><br>
-
-                <input type="submit" id="dist-submit" value="등록"
-                       required="required"
-                       aria-required="true" onclick="register();" />
-                <br />
+                    </tbody>
+                </table>
             </form>
+            <br />
+            <a href="[mask]distributorlist.html" class="previous">이전 화면</a>
+            <br />
+
         </section>
-        <script>
-            function register() {
-                alert("등록되었습니다");
-            }
-
-        </script>
 
 
 
-        <script src="public/js/index.js"></script>
-      
+
+        <script src="/js/index.js"></script>
+
     </body>
 
 </html>

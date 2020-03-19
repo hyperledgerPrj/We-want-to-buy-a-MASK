@@ -28,29 +28,92 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
 	  res.redirect("/welcome");
     //if (!req.session.name) res.redirect("/login");
-    //else res.redirect("/welcome");
+    res.render("index");
   });
 
+   app.get("/welcome", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("welcome", { name: req.session.name });
+  //	res.redirect("/welcome");
+       res.render("welcome", { message: "input your id and password." });
+    });
+	
   app.get("/login", function(req, res) {
     //if (!req.session.name)
     //  res.render("login", { message: "input your id and password." });
     //else res.redirect("/welcome");
 	res.render("login");
   });
-
-  app.get("/welcome", function(req, res) {
-    //if (!req.session.name) return res.redirect("/login");
-    //else res.render("welcome", { name: req.session.name });
-  //	res.redirect("/welcome");
-       res.render("welcome", { message: "input your id and password." });
-    });
   
   app.get("/signup", function(req, res) {
     //if (!req.session.name) return res.redirect("/login");
     //else res.render("signup.html", { name: req.session.name });
 	res.render("signup", { message: "input your id and password." });
   });
+  
+   app.get("/indexlogin", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("indexlogin", { message: "input your id and password." });
+  });
+  
  
+ app.get("/index", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("index", { message: "input your id and password." });
+  });
+  
+  app.get("/registersupplier", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("[rgis]supplier", { message: "input your id and password." });
+  });
+  app.get("/registerseller", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("[rgis]seller", { message: "input your id and password." });
+  });
+  app.get("/registerdis", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("[rgis]distributor", { message: "input your id and password." });
+  });
+  app.get("/dislist", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("[mask]distributorlist", { message: "input your id and password." });
+  });
+  app.get("/sellerlist", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("[mask]sellerlist", { message: "input your id and password." });
+  });
+  app.get("/supplierlist", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("[mask]supplierlist", { message: "input your id and password." });
+  });
+   app.get("/policy_notice", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("policy_notice", { message: "input your id and password." });
+  });
+   app.get("/sellerdetail", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("sellerlist_detail", { message: "input your id and password." });
+  });
+  app.get("/supplierdetail", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("supplier_detail", { message: "input your id and password." });
+  });
+   app.get("/disdetail", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("distributor_detail", { message: "input your id and password." });
+  });
 
   app.get("/logout", function(req, res) {
     req.session.destroy(function(err) {
