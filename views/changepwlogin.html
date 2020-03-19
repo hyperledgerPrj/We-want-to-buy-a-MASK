@@ -1,31 +1,24 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<!-- Start Head -->
 
 <head>
+  <title>비밀번호 변경</title>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title style="text-align: center;">My page</title>
-
   <link rel="stylesheet" href="../public/css/style.min.css" />
   <link rel="stylesheet" href="../public/css/modules.css" />
   <link rel="stylesheet" href="../public/css/style.css" />
   <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
   <style>
     input[type="submit"] {
-      width: 130px;
+      width: 60px;
     }
   </style>
-  <script>
-    document.getElementsByName("userid").innerHTML = document.getElementsByName("useremail");
-    document.getElementsByName("usertype").innerHTML = document.getElementsByName("affselect");
-  </script>
 </head>
 
-<body class="default" style="text-align: center;">
+<body class="default" style="text-align: center;" onload='document.changepwform.userpw.focus()'>
   <header class="MOD_HEADER3">
     <div class="MOD_HEADER3_SocialBarContainer">
       <div data-layout="_r" class="MOD_HEADER3_SocialBar">
@@ -71,52 +64,86 @@
           <span class="c">님 환영합니다</span><span>.</span>
           <a href="/logout" class="logout">Logout</a>
         </div>
+
       </div>
     </div>
   </header>
 
-
-  <section>
-    <form name="mypageform" action="/mypage" method="post">
+  <main>
+    <section>
       <div data-layout="_r">
         <div data-layout="al16">
-          <h1 style="text-align: center;">My page</h1>
-        </div>
-      </div>
-      <table style="border:1px solid white; width:35%; height:100px; margin:auto;text-align: left;padding: 20px;">
-
-        <tr>
-          <td><strong>
-              아이디
-            </strong></td>
-          <td name="userid">
-            dasol
+          <h1 style="text-align: center;">비밀번호 변경</h1>
+        </div> </div>
+        <form name="changepwform" id="my-form" action="/changepw" method="put">
+        <table class="signupform" style="margin:auto">
+          <td>
+            <label for="passwordlabel">비밀번호<span class="required">*</span></label>
+            <input type="password" value="dkssud1234E" name="userpw" placeholder="Password" required="required"
+              id="pass" aria-required="true" /><br><span style="color: red;font-size: xx-small"><strong>[숫자, 대문자 및 소문자를
+                포함하는 8 ~ 20 자]</strong></span>
           </td>
-        </tr>
-        <tr>
-          <td><strong>
-              소속
-            </strong></td>
-          <td name="usertype">
-            seller
-          </td>
-        </tr>
-      </table>
-    </form>
-    <div class="changepw-submit"><br>
-      <a href="changepwlogin.html"><input type="submit" id="changepw" value="비밀번호 변경" required="required"
-          aria-required="true" /></a>
-    </div>
+          </tr>
+          <tr>
+            <td>
+              <label for="passwordConfirm">비밀번호 확인<span class="required">*</span></label>
+              <input type="password" value="dkssud1234E" required="required" aria-required="true"
+                placeholder="Repassword" name="confirmuserpassword" id="pass-check" />
+            </td>
+          </tr>
+        </table>
+      </form>
+      <br>
+      <br><span>
+        <a href="mypagelogin.html"><input type="submit" value="취소" class="btn1" /></a>
+        <input type="submit" value="변경" class="btn1" id="submit"
+          onclick="CheckPassword(document.changepwform.userpw); return false;" />
+      </span>
 
-  </section>
+   
+  </main>
 
-
-
-  <script src="assets/js/index.js"></script>
   <div id=bitwise-footer
     style=text-align:center;margin-top:3em;padding:1em;color:#aaaaaa;font-size:0.75em;font-style:italic;>Hosted by the
-    team <a href=http://www.bitwise.io/ target=_blank class="r">K-Shield</a></div>
-</body>
+    team <a href=http://www.bitwise.io/ target=_blank class="r" class="r">K-Shield</a></div>
 
+  <script>
+
+
+    function CheckPassword(inputtxt) {
+      var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
+      if (inputtxt.value.match(passw)) {
+
+
+        console.log("pass:", passw);
+
+        var pass = document.getElementById('pass').value;
+        var passCheck = document.getElementById('pass-check').value;
+        var useremail = document.getElementById('useremail').value;
+
+        console.log("pass:", pass);
+        console.log("passCheck:", passCheck);
+
+        if (pass == passCheck) {
+          alert('비밀번호가 변경되었습니다. 다시 로그인 하십시오');
+          location.href = "login.html";
+        } else {
+          alert('비밀번호가 일치하지 않습니다.');
+          return false;
+        }
+
+
+      } else {
+        console.log(" else test");
+        alert('비밀번호는 숫자, 대문자 및 소문자를 포함하는 8 ~ 20 자')
+        return false;
+      }
+    }
+
+  </script>
+
+  <script src="assets/js/index.js"></script>
+</section>
+</body>
 
 </html>
