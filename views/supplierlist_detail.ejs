@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+    <!-- Start Head -->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/modules.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+    <style>
+
+        h1, p {
+            font-family: 'Nanum Myeongjo', serif;
+        }
+    </style>
+
+    <body>
+        <header class="MOD_HEADER3">
+            <div class="MOD_HEADER3_SocialBarContainer">
+                <div data-layout="_r" class="MOD_HEADER3_SocialBar">
+                    <div class="MOD_HEADER3_SocialIcons">
+
+                        <div class="menubar">
+                            <nav>
+                                <ul>
+                                    <li>
+                                        <a href="/" class="text">K-SHIELD</a>
+                                    </li>
+                                    <li><a href="#" class="view" onclick="myFunction()">View Mask</a></li>
+                                    <li>
+                                    <li><a href="#" class="view" onclick="myFunction()">View Agents</a></li>
+
+                                    <li>
+                                    <li><a href="#" class="view" onclick="myFunction()">Agents register</a></li>
+
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="MOD_HEADER3_Contact">
+                        <p class="MOD_HEADER3_Tel"></p>
+                        <a href="/signup" class="btn"> Sign up </a>
+                        <a href="/login" class="btn"> Login </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div data-layout="_r">
+                <div data-layout="al16">
+                    <br>
+                    <h1 style="text-align: center;">생산업체 상세정보</h1><br>
+                </div>
+            </div>
+            <form name="registerform" action="/manufactureinfo_detail" method="get">
+                <table style="border:2px solid white; width:50%; height:500px; margin:auto;text-align: center;">
+                    <tbody>
+                        <tr>
+                            <td> <strong> 업체명 </strong> </td>
+                            <td> K-쉴드 </td>
+                        </tr>
+                        <tr>
+                            <td> <strong> 업체 대표</strong> </td>
+                            <td> 우믿음 </td>
+                        </tr>
+                        <tr>
+                            <td> <strong> 당일생산량 </strong> </td>
+                            <td> 200원 </td>
+                        </tr>
+                        <tr>
+                            <td> <strong> 수출량 </strong> </td>
+                            <td> 202020개 </td>
+                        </tr>
+                        <tr>
+                            <td> <strong> 국내출고량 </strong> </td>
+                            <td> 온라인 </td>
+                        </tr>
+                        <tr>
+                            <td> <strong> 재고량 </strong> </td>
+                            <td> 200원 </td>
+                        </tr>
+                        <tr>
+                            <td> <strong> 생산단가 </strong> </td>
+                            <td> 202020개 </td>
+                        </tr>
+                        <tr>
+                            <td> <strong> KF 인증 여부</strong> </td>
+                            <td> 온라인 </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            <br />
+            <a href="[maks]supplierlist.html" class="previous" onclick="register()">이전 화면</a>
+            <br />
+
+        </section>
+
+
+
+        <script src="/js/index.js"></script>
+
+    </body>
+
+</html>
