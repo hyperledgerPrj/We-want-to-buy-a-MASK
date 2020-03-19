@@ -139,6 +139,7 @@
                               <input type="submit"
                                      value="create"
                                      id="submitt"
+                                     onclick="();"
                                      name="resultBtn" />
                           </td>
                       </tr>
@@ -148,7 +149,34 @@
 
       </main>
 
+<script>
+      function signup() {
+        alert("가입되었습니다");
+      }
+      function myFunction() {
+        alert("로그인 하세요");
+      }
+      function check() {
+        alert("사용 가능한 ID입니다");
+      }
 
+        window.onload=function(){
+  document.getElementById('my-form').onsubmit=function(){
+   var pass=document.getElementById('pass').value;
+   var passCheck=document.getElementById('pass-check').value;
+
+   if(pass==passCheck){
+    alert('가입되었습니다');
+    location.href="login.html";
+   }else{
+    alert('비밀번호가 일치하지 않습니다.');
+     return false;
+   }
+
+  }
+ }
+
+ </script>
 
       <script src="/js/index.js"></script>
   </body>

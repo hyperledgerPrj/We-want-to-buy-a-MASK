@@ -99,6 +99,11 @@ module.exports = function(app) {
     //else res.render("signup.html", { name: req.session.name });
 	res.render("policy_notice", { message: "input your id and password." });
   });
+   app.get("/policy_notice_login", function(req, res) {
+    //if (!req.session.name) return res.redirect("/login");
+    //else res.render("signup.html", { name: req.session.name });
+	res.render("policy_notice_login", { message: "input your id and password." });
+  });
    app.get("/sellerdetail", function(req, res) {
     //if (!req.session.name) return res.redirect("/login");
     //else res.render("signup.html", { name: req.session.name });
