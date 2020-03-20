@@ -125,8 +125,7 @@ module.exports = function(app) {
       res.redirect("/");
     });
   });
-
-  app.post("/login", function(req, res) {
+ app.post("/login", function(req, res) {
     let id = req.body.userid;
     let password = req.body.password;
 

@@ -596,8 +596,8 @@ input {
 }
 
 input[type='submit'] {
-  background: #09c;
-  color: #fff;
-  height: 30px;
+  background: #A4A4A4;
+  color: white;
+  height: 40px;
   border: 1px solid #999;
 }

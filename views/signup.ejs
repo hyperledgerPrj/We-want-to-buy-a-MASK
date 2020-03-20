@@ -12,7 +12,22 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
 
-  
+    <style>
+    table {
+           width: 600px;
+           height: 200px;
+        position: relative;
+        left: 100px;
+        top: 10px;
+
+
+
+         }
+    input {height: 40px;}
+    a{text-decoration: none;}
+
+
+    </style>
 
 
 </head>
@@ -68,19 +83,20 @@
                 action="#"
                 method="post">
               <section class="Main-text">
-                  <table style="border:2px solid white; width:100%; height:400px; margin:auto;text-align: center;  position: relative; left: 80px; top: 0px;">
+                  <table class="signuptable">
                       <tr>
                           <td>
                               <label for="email">이메일 <span class="required">*</span></label>
                               <input type="text"
+                              placeholder="Email"
                                      required="required"
                                      aria-required="true"
                                      class="useremail_input"
                                      value=""
                                      name="useremail" />
                                      <img id="email_check_sucess" style="display: none;">
+                                       <td><a href="#" id="email_check" class="email_overlap_button" onclick="email_overlap_check()">중복 확인 </a></td>
                           </td>
-                          <td><a href="#" id="email_check" class="email_overlap_button" onclick="email_overlap_check()">중복 확인 </a></td>
 
                       </tr>
                       <tr>
@@ -92,7 +108,7 @@
                                      aria-required="true" />
                           </td>
                           <td>
-                              <span style="color: red;font-size: xx-small"><strong>[숫자, 대문자 및 소문자를 포함하는 8 ~ 20 자]</strong></span>
+                              <span style="color: red;font-size: xx-small"><strong>[숫자, 대소문자를 포함하는 8 ~ 20 자]</strong></span>
                           </td>
                       </tr>
 
@@ -101,6 +117,7 @@
                           <td>
                               <label for="passwordConfirm">비밀번호 확인<span class="required">*</span></label>
                               <input type="password"
+                                placeholder="Repassword"
                                      required="required"
                                      aria-required="true"
                                      value=""
@@ -112,6 +129,7 @@
                           <td>
                               <label for="group">소속<span class="required">*</span></label>
                               <input type="text"
+                                placeholder="Group"
                                      required="required"
                                      aria-required="true"
                                      value=""
@@ -140,82 +158,82 @@
 
       </main>
 
-<script>
+      <script>
 
-function email_overlap_check() {
+      function email_overlap_check() {
 
-    $('.username_email').change(function () {
-      $('#email_check_sucess').hide();
-      $('.email_overlap_button').show();
-      $('.useremail_input').attr("check_result", "fail");
-    })
+          $('.username_email').change(function () {
+            $('#email_check_sucess').hide();
+            $('.email_overlap_button').show();
+            $('.useremail_input').attr("check_result", "fail");
+          })
 
 
-    if ($('.useremail_input').val() == '') {
-      alert('이메일을 입력해주세요.')
-      return;
-    }
+          if ($('.useremail_input').val() == '') {
+            alert('이메일을 입력해주세요.')
+            return;
+          }
 
-    email_overlap_input = document.querySelector('input[name="useremail"]');
+          email_overlap_input = document.querySelector('input[name="useremail"]');
 
-    $.ajax({
-      url: "{% url 'lawyerAccount:email_overlap_check' %}",
-      data: {
-        'username': email_overlap_input.value
-      },
-      datatype: 'json',
-      success: function (data) {
-        console.log(data['overlap']);
-        if (data['overlap'] == "fail") {
-          alert("이미 존재하는 이메일 입니다.");
-          id_overlap_input.focus();
-          return;
-        } else {
-          alert("사용가능한 이메일 입니다.");
-          $('.useremail_input').attr("check_result", "success");
-          $('#email_check_sucess').show();
-          $('.email_overlap_button').hide();
-          return;
+          $.ajax({
+            url: "{% url 'lawyerAccount:email_overlap_check' %}",
+            data: {
+              'username': email_overlap_input.value
+            },
+            datatype: 'json',
+            success: function (data) {
+              console.log(data['overlap']);
+              if (data['overlap'] == "fail") {
+                alert("이미 존재하는 이메일 입니다.");
+                id_overlap_input.focus();
+                return;
+              } else {
+                alert("사용가능한 이메일 입니다.");
+                $('.useremail_input').attr("check_result", "success");
+                $('#email_check_sucess').show();
+                $('.email_overlap_button').hide();
+                return;
+              }
+            }
+          });
         }
+
+
+
+      function Signup(inputtxt) {
+      var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
+      if (inputtxt.value.match(passw)) {
+
+
+       console.log("pass:", passw);
+
+       var pass = document.getElementById('pass').value;
+       var passCheck = document.getElementById('pass-check').value;
+
+
+       console.log("pass:", pass);
+       console.log("passCheck:", passCheck);
+
+       if (pass == passCheck) {
+         alert('회원가입 되었습니다');
+         location.href = "/login";
+       } else {
+         alert('비밀번호가 일치하지 않습니다');
+         return false;
+       }
+
+
       }
-    });
-  }
 
 
+      else {
+       console.log(" else test");
+      alert('\n이메일 중복 확인하세요\n비밀번호는 숫자, 대문자 및 소문자를 포함하는 8 ~ 20 자');
+      return false;}
+      }
 
-function Signup(inputtxt) {
-var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/;
-if (inputtxt.value.match(passw)) {
-
-
- console.log("pass:", passw);
-
- var pass = document.getElementById('pass').value;
- var passCheck = document.getElementById('pass-check').value;
-
-
- console.log("pass:", pass);
- console.log("passCheck:", passCheck);
-
- if (pass == passCheck) {
-   alert('회원가입 되었습니다');
-   location.href = "/login";
- } else {
-   alert('비밀번호가 일치하지 않습니다');
-   return false;
- }
-
-
-}
-
-
-else {
- console.log(" else test");
-alert('\n이메일 중복 확인하세요\n비밀번호는 숫자, 대문자 및 소문자를 포함하는 8 ~ 20 자');
-return false;}
-}
-
- </script>
+       </script>
 
       <script src="/js/index.js"></script>
   </body>

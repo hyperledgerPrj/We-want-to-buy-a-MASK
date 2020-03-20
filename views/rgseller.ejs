@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
 
-    <html lang="en">
+    <html>
     <!-- Start Head -->
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title style="text-align: center;">생산업체 등록</title>
+        <title style="text-align: center;">판매업체 등록</title>
 
         <link rel="stylesheet" href="css/style.min.css" />
         <link rel="stylesheet" href="css/modules.css" />
@@ -18,16 +18,18 @@
         h1, p {
             font-family: 'Nanum Myeongjo', serif;
         }
+ 
 
-
-               input[type="submit"] {
-
+          input[type="submit"] {
+             
                  background: #09c;
                  color: #fff;
                  font-family: 'Sunflower', sans-serif;
-                 height: 30px;
+                 height: 30px;            
                  border: 1px solid #999;
 }
+        
+                 
         </style>
 
     </head>
@@ -73,28 +75,28 @@
                     </div>
                     <div class="MOD_HEADER3_Contact">
                         <p class="MOD_HEADER3_Tel"></p>
-                        <a href="mypage.html" class="my_page">K-shield</a><p class="c">님 환영합니다</p>&emsp;
-                     <a href="/logout" class="logout">로그아웃</a>
+                        <a href="mypage.html" class="my_page">K-shield</a><p class="c">님 환영합니다</p>
+                        <a href="/logout" class="logout">로그아웃</a>
                     </div>
                 </div>
             </div>
         </header>
 
         <section>
-            <form name="prod-register" action="/register_users" method="post">
-                <div data-layout="_r">
-                    <div data-layout="al16">
-                        <br>
-                        <h1 style="text-align: center;">생산업체 등록</h1><br>
-                    </div>
+            <div data-layout="_r">
+                <div data-layout="al16">
+                    <br>
+                    <h1 style="text-align: center;">판매업체 등록</h1><br>
                 </div>
-                <table style="border:2px solid white; width:100%; height:300px; margin:auto;text-align: center;">
+            </div>
+            <form name="sell-register" action="/register_users" method="post">
+               <table style="border:2px solid white; width:100%; height:300px; margin:auto;text-align: center;">
                     <tr>
                         <td>
                             업체명
                         </td>
                         <td>
-                            <input type="text" id="sup-name" placeholder=""
+                            <input type="text" id="sell-name" placeholder=""
                                    required="required"
                                    aria-required="true" />
                         </td>
@@ -104,7 +106,7 @@
                             업체 대표
                         </td>
                         <td>
-                            <input type="text" id="sup-ceo" placeholder=""
+                            <input type="text" id="sell-ceo" placeholder=""
                                    required="required"
                                    aria-required="true" />
                         </td>
@@ -114,84 +116,48 @@
                             사업자 번호
                         </td>
                         <td>
-                            <input type="text" id="sup-license" placeholder=""
+                            <input type="text" id="sell-license" placeholder=""
                                    required="required"
                                    aria-required="true" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            당일 생산량
+                            판매 단가
                         </td>
                         <td>
-                            <input type="text" id="sup-quantity" placeholder=""
+                            <input type="text" id="sell-price" placeholder=""
                                    required="required"
                                    aria-required="true" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            수출량
+                            판매 수량
                         </td>
                         <td>
-                            <input type="text" id="sup-exports" placeholder=""
+                            <input type="text" id="sell-quantity" placeholder=""
                                    required="required"
                                    aria-required="true" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            국내 출고량
+                            판매처
                         </td>
                         <td>
-                            <input type="text" id="sup-domestic" placeholder=""
+                            <input type="text" id="sell-dealership" placeholder=""
                                    required="required"
                                    aria-required="true" />
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            재고량
-                        </td>
-                        <td>
-                            <input type="text" id="sup-left" placeholder=""
-                                   required="required"
-                                   aria-required="true" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            단가
-                        </td>
-                        <td>
-                            <input type="text" id="sup-price" placeholder=""
-                                   required="required"
-                                   aria-required="true" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            KC 및 KF94 인증 여부
-                        </td>
-                        <td>
-                            <input type="checkbox" id="chk_info" value="yes">
-                        </td>
-                        <td>
-                        <input type="checkbox" id="chk_info" value="no">
-                            </td>
-                    </tr>
-                    <tr>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-
-                    </tr>
+                    
                 </table><br><br>
-                <input type="submit" name="sup-submit" value="등록"
-                       required="required"
-                       aria-required="true" onclick="register();" />
-                <br />
+                            <div class="regis-submit">
+                                <input type="submit" id="sell-submit" value="등록"
+                                       required="required"
+                                       aria-required="true" onclick="register();" />
+                            </div>
             </form>
         </section>
         <script>
@@ -204,6 +170,7 @@
 
 
         <script src="/js/index.js"></script>
-
+       
     </body>
+
 </html>
