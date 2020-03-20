@@ -234,7 +234,7 @@ a.view:link {
 }
 
 a.my_page {
-  color: white;
+  color: rgb(161, 228, 255);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .c {
@@ -578,26 +578,4 @@ h3 {
         flex-direction: column;
         width: 400px;
     }
-}
-
-
-h1,
-h2 {
-  font-family: 'Nanum Myeongjo', serif;
-}
-table {
-  margin: auto;
-}
-body {
-  text-align: center;
-}
-input {
-  height: 30px;
-}
-
-input[type='submit'] {
-  background: #A4A4A4;
-  color: white;
-  height: 40px;
-  border: 1px solid #999;
 }
