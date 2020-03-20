@@ -243,29 +243,18 @@ p {
 }
 
 a.btn,
-.ghost-button {
-  color: white;
-  font-size: 0.9em;
+button {
+  background-color: white;
+  color: black;
   text-decoration: none;
-                display: inline-block;
-                 padding: 5px 10px;
-                border: 2px solid #ffffff;
-                text-align: center;
-
-
+  display: inline-block;
+  padding: 1em;
+  border-radius: 5px;
+  border: none;
+  font-family: sans-serif;
+  font-size: 1em;
+  cursor: pointer;
 }
-
-a.logout,
-.ghost-button {
-  color: white;
-  font-size: 0.9em;
-  text-decoration: none;
-                display: inline-block;
-                 padding: 4px 9px;
-                border: 2px solid #ffffff;
-                text-align: center;
-            }
-            
 a.btn:hover,
 button:hover {
   filter: brightness(1.1);
