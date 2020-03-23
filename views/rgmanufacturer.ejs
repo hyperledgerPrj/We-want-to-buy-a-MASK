@@ -1,209 +1,247 @@
 ﻿<!DOCTYPE html>
 
-    <html lang="en">
-    <!-- Start Head -->
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title style="text-align: center;">생산업체 등록</title>
+<html lang="en">
+  <!-- Start Head -->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title style="text-align: center;">생산업체 등록</title>
 
-        <link rel="stylesheet" href="css/style.min.css" />
-        <link rel="stylesheet" href="css/modules.css" />
-        <link rel="stylesheet" href="css/style.css" />
-         <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/modules.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
+      h1,
+      p {
+        font-family: "Nanum Myeongjo", serif;
+      }
 
-        h1, p {
-            font-family: 'Nanum Myeongjo', serif;
-        }
- 
-
-               input[type="submit"] {
-             
-                 background: #09c;
-                 color: #fff;
-                 font-family: 'Sunflower', sans-serif;
-                 height: 30px;            
-                 border: 1px solid #999;
-}
-        </style>
-
-    </head>
-    <body class="default" style="text-align: center;">
-        <header class="MOD_HEADER3">
-            <div class="MOD_HEADER3_SocialBarContainer">
-                <div data-layout="_r" class="MOD_HEADER3_SocialBar">
-                    <div class="MOD_HEADER3_SocialIcons">
-
-                        <div class="menubar">
-                            <nav>
-                                <ul>
-                                    <li>
-                                        <a href="indexlogin.html" class="text">K-SHIELD</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="view">View mask</a>
-                                        <ul class="submenu">
-                                            <li><a href="[mask]supplierlist.html">생산업체</a></li>
-                                            <li><a href="[mask]sellerlist.html">판매업체</a></li>
-                                            <li><a href="[mask]distributorlist.html">유통업체</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="view">View agents</a>
-                                        <ul class="submenu">
-                                            <li><a href="[ag]supplierlist.html">생산업체</a></li>
-                                            <li><a href="[ag]sellerlist.html">판매업체</a></li>
-                                            <li><a href="[ag]distributorlist.html">유통업체</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="view">Agents register<i class="ti-angle-down"></i></a>
-                                        <ul class="submenu">
-                                            <li><a href="[rgis]supplier.html">생산업체 등록</a></li>
-                                            <li><a href="[rgis]seller.html">판매업체 등록</a></li>
-                                            <li><a href="[rgis]distributor.html">유통업체 등록</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="MOD_HEADER3_Contact">
-                        <p class="MOD_HEADER3_Tel"></p>
-                        <a href="mypage.html" class="my_page">K-shield</a><p class="c">님 환영합니다</p>
-                        <a href="/logout" class="logout">로그아웃</a>
-                    </div>
-                </div>
+      input[type="submit"] {
+        background: #09c;
+        color: #fff;
+        font-family: "Sunflower", sans-serif;
+        height: 30px;
+        border: 1px solid #999;
+      }
+    </style>
+  </head>
+  <body class="default" style="text-align: center;">
+    <header class="MOD_HEADER3">
+      <div class="MOD_HEADER3_SocialBarContainer">
+        <div data-layout="_r" class="MOD_HEADER3_SocialBar">
+          <div class="MOD_HEADER3_SocialIcons">
+            <div class="menubar">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="indexlogin.html" class="text">K-SHIELD</a>
+                  </li>
+                  <li>
+                    <a href="#" class="view">View mask</a>
+                    <ul class="submenu">
+                      <li><a href="manufacturerlist">생산업체</a></li>
+                      <li><a href="sellerlist">판매업체</a></li>
+                      <li><a href="distributorlist">유통업체</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#" class="view">View agents</a>
+                    <ul class="submenu">
+                      <li><a href="[ag]supplierlist.html">생산업체</a></li>
+                      <li><a href="[ag]sellerlist.html">판매업체</a></li>
+                      <li><a href="[ag]distributorlist.html">유통업체</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#" class="view"
+                      >Agents register<i class="ti-angle-down"></i
+                    ></a>
+                    <ul class="submenu">
+                        <li><a href="rgmanufacturer">생산업체 등록</a></li>
+                        <li><a href="rgseller">판매업체 등록</a></li>
+                        <li><a href="rgdistributor">유통업체 등록</a></li>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
             </div>
-        </header>
+          </div>
+          <div class="MOD_HEADER3_Contact">
+            <p class="MOD_HEADER3_Tel"></p>
+            <a href="mypage.html" class="my_page">K-shield</a>
+            <p class="c">님 환영합니다</p>
+            <a href="/logout" class="logout">로그아웃</a>
+          </div>
+        </div>
+      </div>
+    </header>
 
-        <section>
-            <form name="prod-register" action="/register_users" method="post">
-                <div data-layout="_r">
-                    <div data-layout="al16">
-                        <br>
-                        <h1 style="text-align: center;">생산업체 등록</h1><br>
-                    </div>
-                </div>
-                <table style="border:2px solid white; width:100%; height:300px; margin:auto;text-align: center;">
-                    <tr>
-                        <td>
-                            업체명
-                        </td>
-                        <td>
-                            <input type="text" id="sup-name" placeholder=""
-                                   required="required"
-                                   aria-required="true" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            업체 대표
-                        </td>
-                        <td>
-                            <input type="text" id="sup-ceo" placeholder=""
-                                   required="required"
-                                   aria-required="true" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            사업자 번호
-                        </td>
-                        <td>
-                            <input type="text" id="sup-license" placeholder=""
-                                   required="required"
-                                   aria-required="true" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            당일 생산량
-                        </td>
-                        <td>
-                            <input type="text" id="sup-quantity" placeholder=""
-                                   required="required"
-                                   aria-required="true" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            수출량
-                        </td>
-                        <td>
-                            <input type="text" id="sup-exports" placeholder=""
-                                   required="required"
-                                   aria-required="true" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            국내 출고량
-                        </td>
-                        <td>
-                            <input type="text" id="sup-domestic" placeholder=""
-                                   required="required"
-                                   aria-required="true" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            재고량
-                        </td>
-                        <td>
-                            <input type="text" id="sup-left" placeholder=""
-                                   required="required"
-                                   aria-required="true" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            단가
-                        </td>
-                        <td>
-                            <input type="text" id="sup-price" placeholder=""
-                                   required="required"
-                                   aria-required="true" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            KC 및 KF94 인증 여부
-                        </td>
-                        <td>
-                            <input type="checkbox" id="chk_info" value="yes">
-                        </td>
-                        <td>
-                        <input type="checkbox" id="chk_info" value="no">
-                            </td>
-                    </tr>
-                    <tr>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-                        
-                    </tr>
-                </table><br><br>
-                <input type="submit" name="sup-submit" value="등록"
-                       required="required"
-                       aria-required="true" onclick="register();" />
-                <br />
-            </form>
-        </section>
-        <script>
-            function register() {
-                alert("등록되었습니다");
-            }
+    <section>
+      <form name="prod-register" action="/register_users" method="post">
+        <div data-layout="_r">
+          <div data-layout="al16">
+            <br />
+            <h1 style="text-align: center;">생산업체 등록</h1>
+            <br />
+          </div>
+        </div>
+        <table
+          style="border:2px solid white; width:100%; height:300px; margin:auto;text-align: center;"
+        >
+          <tr>
+            <td>
+              업체명
+            </td>
+            <td>
+              <input
+                type="text"
+                id="sup-name"
+                placeholder=""
+                required="required"
+                aria-required="true"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              업체 대표
+            </td>
+            <td>
+              <input
+                type="text"
+                id="sup-ceo"
+                placeholder=""
+                required="required"
+                aria-required="true"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              사업자 번호
+            </td>
+            <td>
+              <input
+                type="text"
+                id="sup-license"
+                placeholder=""
+                required="required"
+                aria-required="true"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              당일 생산량
+            </td>
+            <td>
+              <input
+                type="text"
+                id="sup-quantity"
+                placeholder=""
+                required="required"
+                aria-required="true"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              수출량
+            </td>
+            <td>
+              <input
+                type="text"
+                id="sup-exports"
+                placeholder=""
+                required="required"
+                aria-required="true"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              국내 출고량
+            </td>
+            <td>
+              <input
+                type="text"
+                id="sup-domestic"
+                placeholder=""
+                required="required"
+                aria-required="true"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              재고량
+            </td>
+            <td>
+              <input
+                type="text"
+                id="sup-left"
+                placeholder=""
+                required="required"
+                aria-required="true"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              단가
+            </td>
+            <td>
+              <input
+                type="text"
+                id="sup-price"
+                placeholder=""
+                required="required"
+                aria-required="true"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              KC 및 KF94 인증 여부
+            </td>
+            <td>
+              <input type="checkbox" id="chk_info" value="yes" />
+            </td>
+            <td>
+              <input type="checkbox" id="chk_info" value="no" />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
 
-        </script>
+        <br /><br />
+        <input
+          type="submit"
+          name="sup-submit"
+          value="등록"
+          required="required"
+          aria-required="true"
+          onclick="register();"
+        />
+        <br />
+      </form>
+    </section>
+    <script>
+      function register() {
+        alert("등록되었습니다");
+      }
+    </script>
 
-
-
-        <script src="/js/index.js"></script>
-        
-    </body>
+    <script src="/js/index.js"></script>
+  </body>
 </html>

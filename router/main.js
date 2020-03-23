@@ -78,7 +78,6 @@ module.exports = function(app) {
     let sql = "SELECT * FROM kshield.users WHERE useremail=? and userpw=?";
     conn.query(sql, [useremail, userpw], function(err, rows, fields) {
       if (!err) {
-        console.log(rows[0]["userpw"]);
         if (rows[0] != undefined) {
           res.send(
             "useremail:" +
@@ -157,8 +156,8 @@ module.exports = function(app) {
         "INSERT INTO kshield.users (useremail, userpw, usergroup ) VALUE ?";
       conn.query(sql, newmemobj, function(err, rows, fields) {
         if (!err) {
-          console.log("fields");
           res.send("success");
+          console.log("fields");
         } else {
           res.send("query err:" + err);
         }
