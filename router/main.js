@@ -68,7 +68,7 @@ module.exports = function(app) {
 
   app.post("/login", function(req, res, next) {
     const useremail = req.body["useremail"];
-    const userpassword = req.body["userpw"];
+    const userpw = req.body["userpw"];
 
     let salt = "";
     let pw = "";
@@ -76,16 +76,16 @@ module.exports = function(app) {
     // let id = req.body.username;
     // let pw = req.body.password;
     let sql = "SELECT * FROM kshield.users WHERE useremail=? and userpw=?";
-    conn.query(sql, [useremail, userpassword], function(err, rows, fields) {
+    conn.query(sql, [useremail, userpw], function(err, rows, fields) {
       if (!err) {
-        console.log(rows[0]["userpassword"]);
+        console.log(rows[0]["userpw"]);
         if (rows[0] != undefined) {
           res.send(
             "useremail:" +
               rows[0]["useremail"] +
               "<br>" +
               "userpw:" +
-              rows[0]["userpassword"]
+              rows[0]["userpw"]
           );
         } else {
           res.send("no data");
@@ -109,7 +109,7 @@ module.exports = function(app) {
       });
 
       crypto.pbkdf2Sync(
-        userpassword,
+        userpw,
         salt,
         100000,
         64,
@@ -123,14 +123,14 @@ module.exports = function(app) {
       //   return res.render("login", { message: "please check your id." });
 
       // let user = results[0];
-      crypto.pbkdf2Sync(userpassword, salt, 100000, 64, "sha512", function(
+      crypto.pbkdf2Sync(userpw, salt, 100000, 64, "sha512", function(
         err,
         derivedKey
       ) {
         if (err) console.log(err);
 
-        if (derivedKey.toString("hex") === userpassword) {
-          req.session.name = userid;
+        if (derivedKey.toString("hex") === userpw) {
+          req.session.name = useremail;
           req.session.save(function() {
             return res.redirect("/indexlogin");
           });

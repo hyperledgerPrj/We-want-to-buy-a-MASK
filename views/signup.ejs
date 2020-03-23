@@ -92,7 +92,7 @@
                                      required="required"
                                      aria-required="true"
                                      class="useremail_input"
-                                     value=""
+                                     value="kf91@naver.com"
                                      name="useremail" />
                                      <img id="email_check_sucess" style="display: none;">
                                        <td><a href="#" id="email_check" class="email_overlap_button" onclick="email_overlap_check()">중복 확인 </a></td>
@@ -104,8 +104,9 @@
                               <label for="passwordlabel">비밀번호 <span class="required">*</span></label>
                               <input type="password" name="userpw" placeholder="Password"
                                      required="required"
-                                     id="pass"
-                                     aria-required="true" />
+                                     id="userpw"
+                                     aria-required="true"
+                                     value="KF91pass$"/>
                           </td>
                           <td>
                               <span style="color: red;font-size: xx-small"><strong>[숫자, 대소문자를 포함하는 8 ~ 20 자]</strong></span>
@@ -120,9 +121,9 @@
                                 placeholder="Repassword"
                                      required="required"
                                      aria-required="true"
-                                     value=""
-                                     name="confirmuserpassword"
-                                     id="pass-check" />
+                                     value="KF91pass$"
+                                     name="userpwRe"
+                                     id="userpwRe" />
                           </td>
                       </tr>
                       <tr>
@@ -132,9 +133,9 @@
                                 placeholder="Group"
                                      required="required"
                                      aria-required="true"
-                                     value=""
-                                     name="confirmuserpassword"
-                                     id="group" />
+                                     value="seller"
+                                     name="usergroup"
+                                     id="usergroup" />
                           </td>
                       </tr>
 
@@ -208,8 +209,8 @@
 
        console.log("pass:", passw);
 
-       var pass = document.getElementById('pass').value;
-       var passCheck = document.getElementById('pass-check').value;
+       var pass = document.getElementById('userpw').value;
+       var passCheck = document.getElementById('userpwRe').value;
 
 
        console.log("pass:", pass);

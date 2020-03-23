@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<!-- Start Head -->
-<head>
+  <!-- Start Head -->
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,153 +10,156 @@
     <link rel="stylesheet" href="css/style.min.css" />
     <link rel="stylesheet" href="css/modules.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-
-        h1, p {
-            font-family: 'Nanum Myeongjo', serif;
-        }
+      h1,
+      p {
+        font-family: "Nanum Myeongjo", serif;
+      }
     </style>
-
-</head>
-<body class="default" style="text-align: center;">
+  </head>
+  <body class="default" style="text-align: center;">
     <header class="MOD_HEADER3">
-        <div class="MOD_HEADER3_SocialBarContainer">
-            <div data-layout="_r" class="MOD_HEADER3_SocialBar">
-                <div class="MOD_HEADER3_SocialIcons">
-
-                    <div class="menubar">
-                        <nav>
-                            <ul>
-                                <li>
-                                    <a href="indexlogin.html" class="text">K-SHIELD</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="view">View mask</a>
-                                    <ul class="submenu">
-                                        <li><a href="[mask]supplierlist.html">생산업체</a></li>
-                                        <li><a href="[mask]sellerlist.html">판매업체</a></li>
-                                        <li><a href="[mask]distributorlist.html">유통업체</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="view">View agents</a>
-                                    <ul class="submenu">
-                                        <li><a href="[ag]supplierlist.html">생산업체</a></li>
-                                        <li><a href="[ag]sellerlist.html">판매업체</a></li>
-                                        <li><a href="[ag]distributorlist.html">유통업체</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="view">Agents register<i class="ti-angle-down"></i></a>
-                                    <ul class="submenu">
-                                        <li><a href="[rgis]supplier.html">생산업체 등록</a></li>
-                                        <li><a href="[rgis]seller.html">판매업체 등록</a></li>
-                                        <li><a href="[rgis]distributor.html">유통업체 등록</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="MOD_HEADER3_Contact">
-                    <p class="MOD_HEADER3_Tel"></p>
-                    <a href="mypage.html" class="my_page">K-shield</a><p class="c">님 환영합니다</p>
-                    <a href="/logout" class="logout">로그아웃</a>
-                </div>
+      <div class="MOD_HEADER3_SocialBarContainer">
+        <div data-layout="_r" class="MOD_HEADER3_SocialBar">
+          <div class="MOD_HEADER3_SocialIcons">
+            <div class="menubar">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="indexlogin.html" class="text">K-SHIELD</a>
+                  </li>
+                  <li>
+                    <a href="#" class="view">View mask</a>
+                    <ul class="submenu">
+                      <li><a href="manufacturerlist">생산업체</a></li>
+                      <li><a href="sellerlist">판매업체</a></li>
+                      <li><a href="distributorlist">유통업체</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#" class="view">View agents</a>
+                    <ul class="submenu">
+                      <li><a href="[ag]supplierlist.html">생산업체</a></li>
+                      <li><a href="[ag]sellerlist.html">판매업체</a></li>
+                      <li><a href="[ag]distributorlist.html">유통업체</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#" class="view"
+                      >Agents register<i class="ti-angle-down"></i
+                    ></a>
+                    <ul class="submenu">
+                      <li><a href="rgmanufacturer">생산업체 등록</a></li>
+                      <li><a href="rgseller">판매업체 등록</a></li>
+                      <li><a href="rgdistributor">유통업체 등록</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
             </div>
+          </div>
+          <div class="MOD_HEADER3_Contact">
+            <p class="MOD_HEADER3_Tel"></p>
+            <a href="mypage.html" class="my_page">K-shield</a>
+            <p class="c">님 환영합니다</p>
+            <a href="/logout" class="logout">로그아웃</a>
+          </div>
         </div>
+      </div>
     </header>
     <section>
-        <div data-layout="_r">
-            <div data-layout="al16">
-                <br>
-                <h1 style="text-align: center;">판매업체 목록</h1><br>
-
-            </div>
+      <div data-layout="_r">
+        <div data-layout="al16">
+          <br />
+          <h1 style="text-align: center;">판매업체 목록</h1>
+          <br />
         </div>
+      </div>
     </section>
 
     <form name="sellinfoform" action="/sellerinfo_up" method="get">
-        <div class="progress-table-wrap">
-            <div class="progress-table">
-                <div class="table-head">
-                    <div class="serial">Serial Number</div>
-                    <div class="country">Division</div>
-                    <div class="visit">Name</div>
-                    <div class="percentage">Added</div>
-                    <div class="result">Updated</div>
-                    <div class="result">Updates</div>
-                </div>
+      <div class="progress-table-wrap">
+        <div class="progress-table">
+          <div class="table-head">
+            <div class="serial">Serial Number</div>
+            <div class="country">Division</div>
+            <div class="visit">Name</div>
+            <div class="percentage">Added</div>
+            <div class="result">Updated</div>
+            <div class="result">Updates</div>
+          </div>
 
-
-                <div class="table-row">
-                    <div class="serial"><a href="sellerlist_detail.html">1-1-2-</a></div>
-                    <div class="country">판매업체</div>
-                    <div class="visit">b</div>
-                    <div class="percentage">c</div>
-                    <div class="result">d</div>
-                    <div class="result">e</div>
-                </div>
-
-
-                <div class="table-row">
-                    <div class="serial">04</div>
-                    <div class="country">a</div>
-                    <div class="visit">b</div>
-                    <div class="percentage">c</div>
-                    <div class="result">d</div>
-                    <div class="result">e</div>
-                </div>
-
-                <div class="table-row">
-                    <div class="serial">05</div>
-                    <div class="country">a</div>
-                    <div class="visit">b</div>
-                    <div class="percentage">c</div>
-                    <div class="result">d</div>
-                    <div class="result">e</div>
-                </div>
-
-                <div class="table-row">
-                    <div class="serial">06</div>
-                    <div class="country">a</div>
-                    <div class="visit">b</div>
-                    <div class="percentage">c</div>
-                    <div class="result">d</div>
-                    <div class="result">e</div>
-                </div>
-
-                <div class="table-row">
-                    <div class="serial">07</div>
-                    <div class="country">a</div>
-                    <div class="visit">b</div>
-                    <div class="percentage">c</div>
-                    <div class="result">d</div>
-                    <div class="result">e</div>
-                </div>
-
-                <div class="table-row">
-                    <div class="serial">08</div>
-                    <div class="country">a</div>
-                    <div class="visit">b</div>
-                    <div class="percentage">c</div>
-                    <div class="result">d</div>
-                    <div class="result">e</div>
-                </div>
+          <div class="table-row">
+            <div class="serial">
+              <a href="sellerlist_detail.html">1-1-2-</a>
             </div>
+            <div class="country">판매업체</div>
+            <div class="visit">b</div>
+            <div class="percentage">c</div>
+            <div class="result">d</div>
+            <div class="result">e</div>
+          </div>
+
+          <div class="table-row">
+            <div class="serial">04</div>
+            <div class="country">a</div>
+            <div class="visit">b</div>
+            <div class="percentage">c</div>
+            <div class="result">d</div>
+            <div class="result">e</div>
+          </div>
+
+          <div class="table-row">
+            <div class="serial">05</div>
+            <div class="country">a</div>
+            <div class="visit">b</div>
+            <div class="percentage">c</div>
+            <div class="result">d</div>
+            <div class="result">e</div>
+          </div>
+
+          <div class="table-row">
+            <div class="serial">06</div>
+            <div class="country">a</div>
+            <div class="visit">b</div>
+            <div class="percentage">c</div>
+            <div class="result">d</div>
+            <div class="result">e</div>
+          </div>
+
+          <div class="table-row">
+            <div class="serial">07</div>
+            <div class="country">a</div>
+            <div class="visit">b</div>
+            <div class="percentage">c</div>
+            <div class="result">d</div>
+            <div class="result">e</div>
+          </div>
+
+          <div class="table-row">
+            <div class="serial">08</div>
+            <div class="country">a</div>
+            <div class="visit">b</div>
+            <div class="percentage">c</div>
+            <div class="result">d</div>
+            <div class="result">e</div>
+          </div>
         </div>
+      </div>
     </form>
     <script>
-        function myFunction() {
-            alert("로그인 하세요");
-        }
+      function myFunction() {
+        alert("로그인 하세요");
+      }
     </script>
     <!-- JS here -->
 
     <script src="js/main.js"></script>
     <script src="/js/index.js"></script>
-
-</body>
+  </body>
 </html>
