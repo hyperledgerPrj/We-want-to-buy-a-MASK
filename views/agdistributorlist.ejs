@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!-- Start Head -->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>View agents:유통</title>
+
+    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/modules.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png" />
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    <script>
+        var mysql = require('mysql')
+
+        var con = mysql.createConnection({
+            host: 'localhost',
+            user: 'yourusername',
+            password: 'yourpassword',
+            database: 'mydb',
+        })
+
+        con.connect(function (err) {
+            if (err) throw err
+            con.query('SELECT name, address FROM customers', function (
+                err,
+                result,
+                fields
+            ) {
+                if (err) throw err
+                console.log(result)
+            })
+        })
+    </script>
+    <style>
+    
+
+        table {
+            border: 1px solid;
+            padding: 8px;
+            width: 500px;
+        }
+
+            table.a {
+                border: 1px solid;
+                padding: 8px;
+                width: 800px;
+            }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body class="default" style="text-align: center;">
+    <header class="MOD_HEADER3">
+        <div class="MOD_HEADER3_SocialBarContainer">
+            <div data-layout="_r" class="MOD_HEADER3_SocialBar">
+                <div class="MOD_HEADER3_SocialIcons">
+
+                    <div class="menubar">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="indexlogin.ejs" class="text">K-SHIELD</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="view">View mask</a>
+                                    <ul class="submenu">
+                                        <li><a href="manufacturerlist.ejs">생산업체</a></li>
+                                        <li><a href="sellerlist.ejs">판매업체</a></li>
+                                        <li><a href="distributorlist.ejs">유통업체</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="view">View agents</a>
+                                    <ul class="submenu">
+                                        <li><a href="agmanufacturerlist.ejs">생산업체</a></li>
+                                        <li><a href="agsellerlist.ejs">판매업체</a></li>
+                                        <li><a href="agdistributorlist.ejs">유통업체</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="view">Agents register<i class="ti-angle-down"></i></a>
+                                    <ul class="submenu">
+                                        <li><a href="rgmanufacturer.ejs">생산업체 등록</a></li>
+                                        <li><a href="rgseller.ejs">판매업체 등록</a></li>
+                                        <li><a href="rgdistributor.ejs">유통업체 등록</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="MOD_HEADER3_Contact">
+                    <span class="c">
+                    [<a href="mypagelogin.ejs" class="my_page">K-shield</a>]
+                    님 환영합니다</span><span>..</span>
+                    <a href="/logout" class="logout">Logout</a></div>
+            </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div data-layout="_r">
+            <div data-layout="al16">
+                <h1 style="text-align: center;">View agents</h1>
+                <h2 style="text-align: center;">유통업체</h2>
+            </div>
+        </div>
+    </section>
+    <form name="registerform" action="/sellerinfo_detail" method="get">
+        <div class="progress-table-wrap">
+            <div class="progress-table">
+                <div class="table-head">
+                    <div class="serial">Name</div>
+                    <div class="country">Division</div>
+                    <div class="visit">Key</div>
+                    <div class="percentage">Owns</div>
+                    <div class="result">Custodian</div>
+                    <div class="result">Reports</div>
+                </div>
+                <div class="table-row">
+                    <div class="serial"><a href="keydistributor_detail.ejs">K-mask</a></div>
+                    <div class="country">유통업체</div>
+                    <div class="visit">b</div>
+                    <div class="percentage">c</div>
+                    <div class="result">d</div>
+                    <div class="result">e</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="serial">02</div>
+                    <div class="country">a</div>
+                    <div class="visit">b</div>
+                    <div class="percentage">c</div>
+                    <div class="result">d</div>
+                    <div class="result">e</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="serial">03</div>
+                    <div class="country">a</div>
+                    <div class="visit">b</div>
+                    <div class="percentage">c</div>
+                    <div class="result">d</div>
+                    <div class="result">e</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="serial">04</div>
+                    <div class="country">a</div>
+                    <div class="visit">b</div>
+                    <div class="percentage">c</div>
+                    <div class="result">d</div>
+                    <div class="result">e</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="serial">05</div>
+                    <div class="country">a</div>
+                    <div class="visit">b</div>
+                    <div class="percentage">c</div>
+                    <div class="result">d</div>
+                    <div class="result">e</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="serial">06</div>
+                    <div class="country">a</div>
+                    <div class="visit">b</div>
+                    <div class="percentage">c</div>
+                    <div class="result">d</div>
+                    <div class="result">e</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="serial">07</div>
+                    <div class="country">a</div>
+                    <div class="visit">b</div>
+                    <div class="percentage">c</div>
+                    <div class="result">d</div>
+                    <div class="result">e</div>
+                </div>
+
+                <div class="table-row">
+                    <div class="serial">08</div>
+                    <div class="country">a</div>
+                    <div class="visit">b</div>
+                    <div class="percentage">c</div>
+                    <div class="result">d</div>
+                    <div class="result">e</div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+  
+
+    <script src="js/main.js"></script>
+    <script src="/js/index.js"></script>
+    
+</body>
+</html>
