@@ -37,12 +37,15 @@ module.exports = function(app) {
 
   app.get("/", function(req, res, next) {
     if (!req.session.name) res.redirect("/login");
-    else res.redirect("/welcome");
+    else res.redirect("/indexlogin");
   });
 
   app.get("/login", function(req, res) {
     if (!req.session.name)
-      res.render("login", { message: "input your id and password." });
+      res.render("login", {
+        message: "input your id and password."
+        // async: true
+      });
     else res.redirect("/welcome");
   });
 
@@ -51,9 +54,10 @@ module.exports = function(app) {
     else res.render("welcome", { name: req.session.name });
   });
 
-  app.get("/signup", function(req, res) {
-    if (!req.session.name) res.render("signup", { message: "join this." });
-    else res.redirect("/welcome");
+  app.get("/signup", function(req, res, next) {
+    // if (!req.session.name) return res.redirect("/signup");
+    // else
+    res.render("signup", { name: req.session.name });
   });
 
   app.get("/logout", function(req, res) {
@@ -63,7 +67,7 @@ module.exports = function(app) {
   });
 
   app.post("/login", function(req, res, next) {
-    const userid = req.body["useremail"];
+    const useremail = req.body["useremail"];
     const userpassword = req.body["userpw"];
 
     let salt = "";
@@ -72,17 +76,12 @@ module.exports = function(app) {
     // let id = req.body.username;
     // let pw = req.body.password;
     let sql = "SELECT * FROM kshield.users WHERE useremail=? and userpw=?";
-    conn.query(sql, [userid, userpassword], function(err, rows, fields) {
-      // conn.end();
-      if (err) {
-        console.log("query error:" + err);
-        res.send(err);
-      } else {
-        console.log(userid);
-        console.log(userpassword);
+    conn.query(sql, [useremail, userpassword], function(err, rows, fields) {
+      if (!err) {
+        console.log(rows[0]["userpassword"]);
         if (rows[0] != undefined) {
           res.send(
-            "userid(email):" +
+            "useremail:" +
               rows[0]["useremail"] +
               "<br>" +
               "userpw:" +
@@ -91,14 +90,18 @@ module.exports = function(app) {
         } else {
           res.send("no data");
         }
-        // let result =
-        //   "rows:" +
-        //   JSON.stringify(rows) +
-        //   "<br><br>" +
-        //   "fields:" +
-        //   JSON.stringify(fields);
-        // res.send(result);
+      } else {
+        console.log("query error:" + err);
+        res.send(err);
       }
+
+      // let result =
+      //   "rows:" +
+      //   JSON.stringify(rows) +
+      //   "<br><br>" +
+      //   "fields:" +
+      //   JSON.stringify(fields);
+      // res.send(result);
 
       crypto.randomBytes(64, (err, buf) => {
         if (err) throw err;
@@ -129,7 +132,7 @@ module.exports = function(app) {
         if (derivedKey.toString("hex") === userpassword) {
           req.session.name = userid;
           req.session.save(function() {
-            return res.redirect("/welcome");
+            return res.redirect("/indexlogin");
           });
         } else {
           return res.render("login", {
@@ -139,6 +142,31 @@ module.exports = function(app) {
       }); //pbkdf2
     }); // query
   }); // end of app.post
+
+  app.post("/signup", (req, res, next) => {
+    let useremail = req.body["useremail"];
+    let userpw = req.body["userpw"];
+    let userpwRe = req.body["userpwRe"];
+    let usergroup = req.body["usergroup"];
+
+    console.log(req.body);
+
+    if (userpw == userpwRe) {
+      let newmemobj = [useremail, userpw, usergroup];
+      let sql =
+        "INSERT INTO kshield.users (useremail, userpw, usergroup ) VALUE ?";
+      conn.query(sql, newmemobj, function(err, rows, fields) {
+        if (!err) {
+          console.log("fields");
+          res.send("success");
+        } else {
+          res.send("query err:" + err);
+        }
+      }); //end of query
+    } else {
+      res.send("password not match!");
+    }
+  }); // end of app.post('/signup')
 
   // app.post('/login', function (req, res) {
   // let id = req.body.username;
