@@ -51,6 +51,41 @@ module.exports = function(app) {
     res.render("indexlogin", { name: req.session.name });
   });
 
+  app.get("/manufacturerlist", (req, res, next) => {
+    res.render("manufacturerlist", { name: req.session.name });
+  });
+
+  app.get("/sellerlist", (req, res, next) => {
+    res.render("sellerlist", { name: req.session.name });
+  });
+
+  app.get("/distributorlist", (req, res, next) => {
+    res.render("distributorlist", { name: req.session.name });
+  });
+
+  // policy
+  app.get("/policy_notice", (req, res, next) => {
+    res.render("policy_notice", { name: req.session.name });
+  });
+
+  // policy
+  app.get("/policy_notice_login", (req, res, next) => {
+    res.render("policy_notice_login", { name: req.session.name });
+  });
+
+  // register
+  app.get("/rgmanufacturer", (req, res, next) => {
+    res.render("rgmanufacturer", { name: req.session.name });
+  });
+
+  app.get("/rgseller", (req, res, next) => {
+    res.render("rgseller", { name: req.session.name });
+  });
+
+  app.get("/rgdistributor", (req, res, next) => {
+    res.render("rgdistributor", { name: req.session.name });
+  });
+
   app.get("/login", function(req, res) {
     // if (!req.session.name)
     // if (!req.session.logined)
