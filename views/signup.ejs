@@ -1,11 +1,91 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Signup</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.min.css" />
+    <link rel="stylesheet" href="css/modules.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      table {
+        width: 600px;
+        height: 200px;
+        position: relative;
+        left: 100px;
+        top: 10px;
+      }
+
+      input {
+        height: 40px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    </style>
   </head>
+
   <body>
-    <h1>Signup</h1>
+    <header class="MOD_HEADER3">
+      <div class="MOD_HEADER3_SocialBarContainer">
+        <div data-layout="_r" class="MOD_HEADER3_SocialBar">
+          <div class="MOD_HEADER3_SocialIcons">
+            <div class="menubar">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="/" class="text">K-SHIELD</a>
+                  </li>
+                  <li>
+                    <a href="#" class="view" onclick="myFunction()"
+                      >View Mask</a
+                    >
+                  </li>
+                  <li></li>
+                  <li>
+                    <a href="#" class="view" onclick="myFunction()"
+                      >View Agents</a
+                    >
+                  </li>
+
+                  <li></li>
+                  <li>
+                    <a href="#" class="view" onclick="myFunction()"
+                      >Agents register</a
+                    >
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div class="MOD_HEADER3_Contact">
+            <p class="MOD_HEADER3_Tel"></p>
+            <a href="/signup" class="btn"> Sign up </a>
+            <a href="/login" class="btn"> Login </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+<main>
+  <section>
+    <div data-layout="_r">
+      <div data-layout="al16">
+        <div class="Title-text">
+
+
+          <h1>회원가입</h1>
+
+        </div>
+      </div>
+  </section>
     <form action="/signup" method="POST">
       <label>useremail:</label>
       <input type="text" name="useremail" value="kf91@naver.com" /><br />
@@ -17,5 +97,6 @@
       <input type="text" name="usergroup" value="distributor" /><br />
       <input type="submit" />
     </form>
+    </main>
   </body>
 </html>
