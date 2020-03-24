@@ -6,6 +6,9 @@ const LocalStrategy = require("passport-local").Strategy;
 const bodyParser = require("body-parser");
 let mysql = require("mysql");
 let dbConfig = require("../dbconfig");
+// let pool = mysql.createPool(dbConfig, {
+//   connectionLimit: 10
+// });
 
 // db connection
 let conn = mysql.createConnection(dbConfig);
@@ -36,17 +39,26 @@ module.exports = function(app) {
   );
 
   app.get("/", function(req, res, next) {
-    if (!req.session.name) res.redirect("/login");
-    else res.redirect("/indexlogin");
+    if (!req.session.name) res.redirect("/index");
+    else res.redirect("/login");
+  });
+
+  app.get("/index", (req, res, next) => {
+    res.render("index", { session: req.session });
+  });
+
+  app.get("/indexlogin", (req, res, next) => {
+    res.render("indexlogin", { name: req.session.name });
   });
 
   app.get("/login", function(req, res) {
-    if (!req.session.name)
-      res.render("login", {
-        message: "input your id and password."
-        // async: true
-      });
-    else res.redirect("/welcome");
+    // if (!req.session.name)
+    // if (!req.session.logined)
+    res.render("login", {
+      session: req.session
+      // async: true
+    });
+    // else res.redirect("/welcome");
   });
 
   app.get("/welcome", function(req, res) {
@@ -67,7 +79,7 @@ module.exports = function(app) {
   });
 
   app.post("/login", function(req, res, next) {
-    const useremail = req.body["useremail"];
+    const useremail = req.body["useremail"]; // body-parser
     const userpw = req.body["userpw"];
 
     let salt = "";
@@ -76,24 +88,25 @@ module.exports = function(app) {
     // let id = req.body.username;
     // let pw = req.body.password;
     let sql = "SELECT * FROM kshield.users WHERE useremail=? and userpw=?";
-    conn.query(sql, [useremail, userpw], function(err, rows, fields) {
+    conn.query(sql, [useremail, userpw], function(err, results, fields) {
       if (!err) {
-        if (rows[0] != undefined) {
-          res.send(
-            "useremail:" +
-              rows[0]["useremail"] +
-              "<br>" +
-              "userpw:" +
-              rows[0]["userpw"]
-          );
+        if (results.length > 0) {
+          if (results[0].userpw == userpw)
+            // res.send(
+            //   { code: 200, success: "login successfull" }
+            // "useremail:" +
+            //   results[0]["useremail"] +
+            //   "<br>" +
+            //   "userpw:" +
+            //   results[0]["userpw"]
+            return res.redirect("/indexlogin");
         } else {
-          res.send("no data");
+          res.send({ code: 400, failed: "no data, error occurred" });
         }
       } else {
         console.log("query error:" + err);
         res.send(err);
       }
-
       // let result =
       //   "rows:" +
       //   JSON.stringify(rows) +
@@ -107,35 +120,30 @@ module.exports = function(app) {
         salt = buf.toString("hex");
       });
 
-      crypto.pbkdf2Sync(
-        userpw,
-        salt,
-        100000,
-        64,
-        "sha512",
-        (err, derivedKey) => {
-          if (err) throw err;
-          pw = derivedKey.toString("hex");
-        }
-      );
+      crypto.pbkdf2(userpw, salt, 100000, 64, "sha512", (err, derivedKey) => {
+        if (err) throw err;
+        pw = derivedKey.toString("hex");
+      });
       // if (!fields[0])
       //   return res.render("login", { message: "please check your id." });
 
       // let user = results[0];
-      crypto.pbkdf2Sync(userpw, salt, 100000, 64, "sha512", function(
+      crypto.pbkdf2(userpw, salt, 100000, 64, "sha512", function(
         err,
         derivedKey
       ) {
         if (err) console.log(err);
 
         if (derivedKey.toString("hex") === userpw) {
+          req.session.logined = true;
           req.session.name = useremail;
           req.session.save(function() {
             return res.redirect("/indexlogin");
           });
         } else {
           return res.render("login", {
-            message: "please check your password."
+            session: req.session,
+            message: "please check your password"
           });
         }
       }); //pbkdf2
@@ -148,16 +156,25 @@ module.exports = function(app) {
     let userpwRe = req.body["userpwRe"];
     let usergroup = req.body["usergroup"];
 
-    console.log(req.body);
+    //console.log("req", req.body);
+    let today = new Date();
+
+    let users = {
+      useremail: req.body.useremail,
+      userpw: req.body.userpw,
+      usergroup: req.body.usergroup,
+      created_at: today,
+      updated_at: today
+    };
 
     if (userpw == userpwRe) {
-      let newmemobj = [useremail, userpw, usergroup];
-      let sql =
-        "INSERT INTO kshield.users (useremail, userpw, usergroup ) VALUE ?";
-      conn.query(sql, newmemobj, function(err, rows, fields) {
+      // let newobj = [useremail, userpw, usergroup, created_at, updated_at];
+      let sql = "INSERT INTO kshield.users SET ?";
+      conn.query(sql, users, function(err, results, fields) {
         if (!err) {
-          res.send("success");
-          console.log("fields");
+          console.log("The rows is:", results);
+          // res.send({ code: 200, success: "user registered sucessfully" });
+          res.redirect("login");
         } else {
           res.send("query err:" + err);
         }
